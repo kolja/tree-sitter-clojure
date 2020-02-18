@@ -72,10 +72,10 @@ Tagged Literal - #inst, #uuid, #foo/bar
 ---
 
 (program
-    (tagged_literal (string))
-    (tagged_literal (keyword))
-    (tagged_literal (quote (symbol)))
-    (tagged_literal (vector
+    (tagged_literal (tag) (string))
+    (tagged_literal (tag) (keyword))
+    (tagged_literal (tag) (quote (symbol)))
+    (tagged_literal (tag) (vector
         (number (number_long))
         (number (number_long))
         (number (number_long)))))
