@@ -67,6 +67,7 @@ Tagged Literal - #inst, #uuid, #foo/bar
 #inst "foo"
 #uuid :bar
 # js 'hello
+#unrepl/... "foo"
 #foo/bar [1 2 3]
 
 ---
@@ -75,6 +76,7 @@ Tagged Literal - #inst, #uuid, #foo/bar
     (tagged_literal (tag) (string))
     (tagged_literal (tag) (keyword))
     (tagged_literal (tag) (quote (symbol)))
+    (tagged_literal (elision) (string))
     (tagged_literal (tag) (vector
         (number (number_long))
         (number (number_long))

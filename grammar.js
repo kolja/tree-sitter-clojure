@@ -312,7 +312,13 @@ module.exports = grammar({
     // Tagged Literal - #inst, #uuid, #foo/bar
     // -------------------------------------------------------------------------
     tag: $ => seq('#', choice($._symbol_chars, $._qualified_symbol)),
-    tagged_literal: $ => seq($.tag, $._anything),
+    tagged_literal: $ => seq(
+        choice($.elision, $.tag),
+        $._anything
+    ),
+
+    // unrepl hack
+    elision: $ => '#unrepl/...',
 
     // -------------------------------------------------------------------------
     // Reader Conditional - #?, #?@
