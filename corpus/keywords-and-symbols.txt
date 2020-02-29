@@ -43,6 +43,7 @@ j3_!:7
 HELICOPTER
 +fiduciary+
 $foo$bar
+some->
 
 a/b
 foo/bar
@@ -50,10 +51,12 @@ foo/bar
 java.lang.String
 java.lang.Byte/decode
 clojure.core.server$start_server
+clojure.core/some->
 
 ---
 
 (program
+  (symbol)
   (symbol)
   (symbol)
   (symbol)
@@ -68,4 +71,5 @@ clojure.core.server$start_server
   (symbol (classname))
   (symbol (qualified_symbol (classname)))
   (symbol (classname))
+  (symbol (qualified_symbol (classname)))
   )

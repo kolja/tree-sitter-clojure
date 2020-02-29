@@ -172,21 +172,13 @@ module.exports = grammar({
 
     symbol: $ => $._symbol,
     _symbol: $ => choice(
-      $.threading_macro,
       $._symbol_chars,
       $.qualified_symbol,
       $.classname
     ),
 
-    threading_macro: $ => choice(
-      '->', '->>',
-      'as->',
-      'some->', 'some->>',
-      'cond->', 'cond->>'
-    ),
-
     // reference: https://clojure.org/reference/reader#_symbols
-    _symbol_chars: $ =>   /[a-zA-Z$\*\+\!\-_\?][a-zA-Z0-9$\*\+\!\-_\?\':]*/,
+    _symbol_chars: $ =>   /[a-zA-Z$\*\+\!\-_\?>][a-zA-Z0-9$\*\+\!\-_\?\':>]*/,
     qualified_symbol: $ => $._qualified_symbol,
     _qualified_symbol: $ => seq( choice($._symbol_chars, $.classname), '/', $._symbol_chars),
 
